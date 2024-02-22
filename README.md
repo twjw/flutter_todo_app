@@ -1,16 +1,22 @@
 # flutter_todo_app
 
-A new Flutter project.
+仿 [github](https://github.com/IsaiasCuvula/flutter_riverpod_todo_app)，主要的庫為 `riverpod` `sqlite` `go_router`
 
-## Getting Started
+> 項目示意圖
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<table>
+  <thead>
+    <tr>
+      <th>首頁</th>
+      <th>新增事項頁</th>
+      <th>詳情彈窗</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><img width="100%" alt="iPhone13Mockup3" src="./doc/img.png"/></td>
+      <td><img width="100%" alt="iPhone13Mockup2" src="./doc/img2.png"/></td>
+      <td><img width="100%" alt="iPhone13Mockup1" src="./doc/img3.png"/></td>
+    </tr>
+  </tbody>
+</table>
