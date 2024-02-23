@@ -7,6 +7,7 @@ import 'package:flutter_todo_app/screen/home_screen.dart';
 import 'package:go_router/go_router.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   appDatabase =
       await $FloorAppDatabase.databaseBuilder('app_database.db').build();
 
@@ -14,6 +15,7 @@ void main() async {
 }
 
 final _router = GoRouter(
+  initialLocation: '/',
   routes: [
     GoRoute(
       path: '/',

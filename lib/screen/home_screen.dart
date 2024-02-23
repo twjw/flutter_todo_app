@@ -12,6 +12,8 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return const Icon(Icons.factory);
+    return Center(
+      child: const Text('123'),
+    );
   }
 }
