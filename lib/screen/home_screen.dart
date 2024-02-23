@@ -12,8 +12,27 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return Center(
-      child: const Text('123'),
+    return Column(
+      children: [
+        Container(
+          width: double.infinity,
+          color: Colors.green,
+          child: SafeArea(
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 20,
+                ),
+                Text('Aug 4, 2023'),
+                Text(
+                  'My Todo List',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ],
+            ),
+          ),
+        )
+      ],
     );
   }
 }
