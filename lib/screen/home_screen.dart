@@ -37,37 +37,35 @@ class HomeScreen extends ConsumerWidget {
                     color: MyTheme.color.primary,
                   ),
                 ),
-                Padding(
+                SingleChildScrollView(
                   padding: const EdgeInsets.only(top: 28, right: 16, left: 16),
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        const TodoList(
-                          list: Array(1),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      const TodoList(
+                        list: Array(1),
+                      ),
+                      const SizedBox(height: 20),
+                      SizedBox(
+                        width: double.infinity,
+                        child: Text(
+                          '已完成',
+                          textAlign: TextAlign.left,
+                          style: MyTheme.text.title,
                         ),
-                        const SizedBox(height: 20),
-                        SizedBox(
-                          width: double.infinity,
-                          child: Text(
-                            '已完成',
-                            textAlign: TextAlign.left,
-                            style: MyTheme.text.title,
-                          ),
-                        ),
-                        const SizedBox(height: 20),
-                        const TodoList(
-                          list: Array(1),
-                          completed: true,
-                        ),
-                      ],
-                    ),
+                      ),
+                      const SizedBox(height: 20),
+                      const TodoList(
+                        list: Array(1),
+                        completed: true,
+                      ),
+                    ],
                   ),
                 ),
               ],
             ),
           ),
-          Container(
+          Padding(
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
             child: Button(
               text: '新增任務',

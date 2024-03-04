@@ -8,10 +8,12 @@ class SubPageWrap extends StatelessWidget {
     super.key,
     required this.title,
     required this.child,
+    this.bottomChild,
   });
 
   final String title;
   final Widget child;
+  final Widget? bottomChild;
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +25,16 @@ class SubPageWrap extends StatelessWidget {
             SubPageHeader(
               title: title,
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(
-                vertical: 20,
-                horizontal: 16,
+            Expanded(
+              child: SingleChildScrollView(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 16,
+                ),
+                child: child,
               ),
-              child: child,
             ),
+            if (bottomChild != null) bottomChild!,
           ],
         ),
       ),
