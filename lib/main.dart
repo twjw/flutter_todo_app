@@ -34,9 +34,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      theme: ThemeData(
-        textTheme: TextTheme(),
-      ),
       routerConfig: _router,
     );
   }
