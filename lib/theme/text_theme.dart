@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 
-class AppThemeText {
-  static const medium = TextStyle(
+class MyThemeText {
+  final medium = const TextStyle(
     fontSize: 16,
     decoration: TextDecoration.none,
     color: Colors.black,
   );
 
-  static const small = TextStyle(
+  final title = const TextStyle(
+    fontSize: 20,
+    decoration: TextDecoration.none,
+    color: Colors.black,
+  );
+
+  final small = const TextStyle(
     fontSize: 13,
     decoration: TextDecoration.none,
     color: Colors.black54,

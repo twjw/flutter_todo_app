@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todo_app/theme/color_theme.dart';
+import 'package:flutter_todo_app/theme/theme.dart';
 
 class ColorSafeArea extends StatelessWidget {
   const ColorSafeArea({super.key, this.color, required this.child});
@@ -11,9 +11,9 @@ class ColorSafeArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: color ?? AppThemeColor.primary,
+      color: color ?? MyTheme.color.primary,
       child: SafeArea(
-        child: Container(color: AppThemeColor.com1, child: child),
+        child: Container(color: MyTheme.color.com1, child: child),
       ),
     );
   }

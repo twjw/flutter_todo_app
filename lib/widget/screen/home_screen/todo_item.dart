@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todo_app/theme/color_theme.dart';
-import 'package:flutter_todo_app/theme/text_theme.dart';
+import 'package:flutter_todo_app/theme/theme.dart';
 
 class TodoItem extends StatelessWidget {
   const TodoItem({super.key, this.border = true, this.completed = false});
@@ -11,12 +10,12 @@ class TodoItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: AppThemeColor.primaryLight,
+      color: MyTheme.color.primaryLight,
       child: Column(
         children: [
           if (border)
             Container(
-              color: AppThemeColor.border,
+              color: MyTheme.color.border,
               height: 2,
             ),
           Container(
@@ -28,50 +27,46 @@ class TodoItem extends StatelessWidget {
                   child: Container(
                     width: 40,
                     height: 40,
-                    color: AppThemeColor.primaryMedium,
+                    color: MyTheme.color.primaryMedium,
                     child: Icon(
                       Icons.account_circle_rounded,
-                      color: AppThemeColor.com1,
+                      color: MyTheme.color.com1,
                       size: 18,
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: 8,
-                ),
+                const SizedBox(width: 8),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         'Do the dishes',
-                        style: AppThemeText.medium.copyWith(
+                        style: MyTheme.text.medium.copyWith(
                           fontWeight: FontWeight.w600,
                         ),
                       ),
                       Text(
                         '11:50 AM',
-                        style: AppThemeText.small,
+                        style: MyTheme.text.small,
                       ),
                     ],
                   ),
                 ),
-                SizedBox(
-                  width: 8,
-                ),
+                const SizedBox(width: 8),
                 Container(
                   width: 20,
                   height: 20,
                   decoration: BoxDecoration(
-                      color: completed ? AppThemeColor.primary : null,
+                      color: completed ? MyTheme.color.primary : null,
                       border: Border.all(
-                        color: AppThemeColor.primary,
+                        color: MyTheme.color.primary,
                         width: 2,
                       )),
                   child: completed
                       ? Icon(
                           Icons.check,
-                          color: AppThemeColor.com1,
+                          color: MyTheme.color.com1,
                           size: 16,
                         )
                       : null,

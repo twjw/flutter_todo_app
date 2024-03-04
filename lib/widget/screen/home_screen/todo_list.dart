@@ -11,27 +11,22 @@ class TodoList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      return Container(
-        width: constraints.maxWidth - 32,
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(12),
-          child: Column(
-            children: [
-              TodoItem(
-                border: false,
-                completed: completed,
-              ),
-              TodoItem(
-                completed: completed,
-              ),
-              TodoItem(
-                completed: completed,
-              ),
-            ],
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12),
+      child: Column(
+        children: [
+          TodoItem(
+            border: false,
+            completed: completed,
           ),
-        ),
-      );
-    });
+          TodoItem(
+            completed: completed,
+          ),
+          TodoItem(
+            completed: completed,
+          ),
+        ],
+      ),
+    );
   }
 }

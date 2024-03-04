@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todo_app/theme/color_theme.dart';
-import 'package:flutter_todo_app/theme/text_theme.dart';
+import 'package:flutter_todo_app/theme/theme.dart';
 import 'package:flutter_todo_app/widget/touchable_opacity.dart';
 
 class DateTitle extends StatelessWidget {
@@ -10,7 +9,7 @@ class DateTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      color: AppThemeColor.primary,
+      color: MyTheme.color.primary,
       child: Column(
         children: [
           const SizedBox(
@@ -28,8 +27,9 @@ class DateTitle extends StatelessWidget {
                 builder: (BuildContext context, Widget? child) {
                   return Theme(
                     data: ThemeData.light().copyWith(
-                      colorScheme: const ColorScheme.light(
-                          primary: AppThemeColor.primary),
+                      colorScheme: ColorScheme.light(
+                        primary: MyTheme.color.primary,
+                      ),
                     ),
                     child: child!,
                   );
@@ -40,8 +40,8 @@ class DateTitle extends StatelessWidget {
             },
             child: Text(
               'Aug 4, 2023',
-              style: AppThemeText.medium.copyWith(
-                color: AppThemeColor.com1,
+              style: MyTheme.text.medium.copyWith(
+                color: MyTheme.color.com1,
               ),
             ),
           ),
@@ -49,15 +49,12 @@ class DateTitle extends StatelessWidget {
             height: 10,
           ),
           Text(
-            'My Todo List',
-            style: AppThemeText.medium.copyWith(
-              color: AppThemeColor.com1,
+            '你的事項',
+            style: MyTheme.text.medium.copyWith(
+              color: MyTheme.color.com1,
               fontSize: 36,
               fontWeight: FontWeight.w700,
             ),
-          ),
-          const SizedBox(
-            height: 80,
           ),
         ],
       ),

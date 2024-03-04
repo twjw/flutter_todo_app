@@ -2,7 +2,8 @@ import 'dart:ffi';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_todo_app/theme/text_theme.dart';
+import 'package:flutter_todo_app/theme/theme.dart';
+import 'package:flutter_todo_app/widget/button.dart';
 import 'package:flutter_todo_app/widget/color_safearea.dart';
 import 'package:flutter_todo_app/widget/screen/home_screen/date_title.dart';
 import 'package:flutter_todo_app/widget/screen/home_screen/todo_list.dart';
@@ -21,32 +22,58 @@ class HomeScreen extends ConsumerWidget {
     return ColorSafeArea(
       child: Column(
         children: [
-          DateTitle(),
-          Transform.translate(
-            offset: const Offset(0, -60),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+          const DateTitle(),
+          Expanded(
+            child: Stack(
+              alignment: Alignment.topCenter,
+              fit: StackFit.expand,
               children: [
-                TodoList(
-                  list: Array(1),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Text(
-                  'Completed',
-                  style: AppThemeText.medium.copyWith(
-                    fontSize: 20,
+                Positioned(
+                  left: 0,
+                  right: 0,
+                  top: 0,
+                  child: Container(
+                    height: 56,
+                    color: MyTheme.color.primary,
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                TodoList(
-                  list: Array(1),
-                  completed: true,
+                Padding(
+                  padding: const EdgeInsets.only(top: 28, right: 16, left: 16),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        const TodoList(
+                          list: Array(1),
+                        ),
+                        const SizedBox(height: 20),
+                        SizedBox(
+                          width: double.infinity,
+                          child: Text(
+                            '已完成',
+                            textAlign: TextAlign.left,
+                            style: MyTheme.text.title,
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        const TodoList(
+                          list: Array(1),
+                          completed: true,
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+            child: Button(
+              text: '新增任務',
+              onPress: () {
+                context.push('/create-task');
+              },
             ),
           ),
         ],
