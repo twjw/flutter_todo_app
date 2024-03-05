@@ -96,19 +96,16 @@ class CreateTaskScreen extends HookConsumerWidget {
                     height: 40,
                     child: ListView(
                       scrollDirection: Axis.horizontal,
-                      children: categories
+                      children: categoryList
                           .map(
                             (e) => Padding(
                               padding: const EdgeInsets.only(left: 8),
                               child: TouchableOpacity(
                                 onTap: () {},
-                                child: Opacity(
-                                  opacity: 0.5,
-                                  child: Category(
-                                    key: ValueKey(e),
-                                    icon: e.icon,
-                                    color: e.color,
-                                  ),
+                                child: Category(
+                                  key: ValueKey(e),
+                                  icon: e.icon,
+                                  color: e.color,
                                 ),
                               ),
                             ),

@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import 'model/category.dart';
 
-final List<Category> categories = [
+final List<Category> categoryList = [
   Category(id: 1, icon: Icons.accessible, color: Colors.greenAccent),
   Category(id: 2, icon: Icons.ad_units_sharp, color: Colors.amberAccent),
   Category(id: 3, icon: Icons.camera_alt_rounded, color: Colors.grey),
