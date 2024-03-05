@@ -68,7 +68,7 @@ class HomeScreen extends ConsumerWidget {
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
             child: Button(
-              text: '新增任務',
+              text: '新增事項',
               onPress: () {
                 context.push('/create-task');
               },

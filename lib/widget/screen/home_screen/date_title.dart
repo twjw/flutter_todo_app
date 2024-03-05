@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo_app/helper/date_time_picker.dart';
 import 'package:flutter_todo_app/theme/theme.dart';
 import 'package:flutter_todo_app/widget/touchable_opacity.dart';
 
@@ -7,6 +8,10 @@ class DateTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Future<void> onChangeDate() async {
+      final selectedDateTime = await showUnLimitDatePicker(context);
+    }
+
     return Container(
       width: double.infinity,
       color: MyTheme.color.primary,
@@ -16,28 +21,7 @@ class DateTitle extends StatelessWidget {
             height: 20,
           ),
           TouchableOpacity(
-            onTap: () {
-              var now = DateTime.now();
-
-              showDatePicker(
-                context: context,
-                initialDate: now,
-                firstDate: now,
-                lastDate: DateTime(now.year, now.month + 3, now.day),
-                builder: (BuildContext context, Widget? child) {
-                  return Theme(
-                    data: ThemeData.light().copyWith(
-                      colorScheme: ColorScheme.light(
-                        primary: MyTheme.color.primary,
-                      ),
-                    ),
-                    child: child!,
-                  );
-                },
-              ).then((value) {
-                if (value == null) return;
-              });
-            },
+            onTap: onChangeDate,
             child: Text(
               'Aug 4, 2023',
               style: MyTheme.text.medium.copyWith(

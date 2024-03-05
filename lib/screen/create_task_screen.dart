@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_todo_app/constants.dart';
+import 'package:flutter_todo_app/helper/date_time.dart';
+import 'package:flutter_todo_app/helper/date_time_picker.dart';
 import 'package:flutter_todo_app/theme/theme.dart';
 import 'package:flutter_todo_app/widget/button.dart';
 import 'package:flutter_todo_app/widget/category.dart';
@@ -8,10 +11,12 @@ import 'package:flutter_todo_app/widget/screen/create_task_screen/form_label.dar
 import 'package:flutter_todo_app/widget/sub_page_wrap.dart';
 import 'package:flutter_todo_app/widget/touchable_opacity.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:intl/intl.dart';
 
 final _formKey = GlobalKey<FormState>();
 
-class CreateTaskScreen extends ConsumerWidget {
+class CreateTaskScreen extends HookConsumerWidget {
   static CreateTaskScreen builder(
     BuildContext context,
     GoRouterState state,
@@ -21,6 +26,25 @@ class CreateTaskScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final now = DateTime.now();
+    final dateTextController =
+        useTextEditingController(text: DateFormat.yMMMMd().format(now));
+    final timeTextController =
+        useTextEditingController(text: DateFormat.jm().format(now));
+
+    Future<void> onChangeDate() async {
+      print(dateTextController.text);
+      final selectedDateTime = await showFormDatePicker(
+          context, DateFormat('MMMM d, y').parse(dateTextController.text));
+      dateTextController.text = DateFormat.yMMMMd().format(selectedDateTime);
+    }
+
+    Future<void> onChangeTime() async {
+      final selectedTime = await showFormTimePicker(
+          context, toTimeOfDay(timeTextController.text));
+      timeTextController.text = DateFormat.jm().format(selectedTime);
+    }
+
     return SubPageWrap(
       title: '新增事項',
       bottomChild: Padding(
@@ -103,6 +127,14 @@ class CreateTaskScreen extends ConsumerWidget {
                   child: Column(
                     children: [
                       const FormLabel(label: '日期'),
+                      TextField(
+                        decoration: const InputDecoration(
+                          icon: Icon(Icons.calendar_today),
+                        ),
+                        readOnly: true,
+                        controller: dateTextController,
+                        onTap: onChangeDate,
+                      ),
                     ],
                   ),
                 ),
@@ -110,6 +142,14 @@ class CreateTaskScreen extends ConsumerWidget {
                   child: Column(
                     children: [
                       const FormLabel(label: '時間'),
+                      TextField(
+                        decoration: const InputDecoration(
+                          icon: Icon(Icons.access_time_sharp),
+                        ),
+                        readOnly: true,
+                        controller: timeTextController,
+                        onTap: onChangeTime,
+                      ),
                     ],
                   ),
                 ),

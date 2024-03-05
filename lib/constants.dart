@@ -3,7 +3,7 @@ import 'package:flutter_todo_app/screen/create_task_screen.dart';
 import 'package:flutter_todo_app/screen/home_screen.dart';
 import 'package:go_router/go_router.dart';
 
-import 'models/category.dart';
+import 'model/category.dart';
 
 final List<Category> categories = [
   Category(id: 1, icon: Icons.accessible, color: Colors.greenAccent),
