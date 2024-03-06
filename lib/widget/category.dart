@@ -18,9 +18,9 @@ class Category extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
-        color: Color.fromRGBO(color.red, color.green, color.blue, 0.2),
+        color: active == true ? color : Color.fromRGBO(color.red, color.green, color.blue, 0.2),
         border: Border.all(
-          color: Color.fromRGBO(color.red, color.green, color.blue, 0.6),
+          color: active == true ? color : Color.fromRGBO(color.red, color.green, color.blue, 0.2),
           width: 2,
         ),
       ),
@@ -31,7 +31,7 @@ class Category extends StatelessWidget {
           height: 40,
           child: Icon(
             icon,
-            color: color,
+            color: active == true ? Colors.white : Color.fromRGBO(color.red, color.green, color.blue, 0.4),
             size: 18,
           ),
         ),

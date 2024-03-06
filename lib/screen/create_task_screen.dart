@@ -31,6 +31,7 @@ class CreateTaskScreen extends HookConsumerWidget {
         useTextEditingController(text: DateFormat.yMMMMd().format(now));
     final timeTextController =
         useTextEditingController(text: DateFormat.jm().format(now));
+    final categoryId = useState<int?>(null);
 
     Future<void> onChangeDate() async {
       print(dateTextController.text);
@@ -101,11 +102,14 @@ class CreateTaskScreen extends HookConsumerWidget {
                             (e) => Padding(
                               padding: const EdgeInsets.only(left: 8),
                               child: TouchableOpacity(
-                                onTap: () {},
+                                onTap: () {
+                                  categoryId.value = e.id;
+                                },
                                 child: Category(
                                   key: ValueKey(e),
                                   icon: e.icon,
                                   color: e.color,
+                                  active: categoryId.value == e.id
                                 ),
                               ),
                             ),
