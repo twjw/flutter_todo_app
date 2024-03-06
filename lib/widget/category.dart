@@ -6,7 +6,7 @@ class Category extends StatelessWidget {
     super.key,
     required this.icon,
     required this.color,
-    this.active = false,
+    this.active = true,
   });
 
   final IconData icon;
