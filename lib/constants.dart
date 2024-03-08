@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todo_app/screen/create_task_screen.dart';
 import 'package:flutter_todo_app/screen/home_screen.dart';
+import 'package:flutter_todo_app/screen/setting_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import 'model/category.dart';
@@ -27,6 +28,10 @@ final router = GoRouter(
     GoRoute(
       path: '/create-task',
       builder: CreateTaskScreen.builder,
+    ),
+    GoRoute(
+      path: '/setting',
+      builder: SettingScreen.builder,
     ),
   ],
 );
