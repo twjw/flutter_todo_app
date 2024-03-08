@@ -5,7 +5,7 @@ import 'package:flutter_todo_app/helper/date_time.dart';
 import 'package:flutter_todo_app/helper/date_time_picker.dart';
 import 'package:flutter_todo_app/theme/theme.dart';
 import 'package:flutter_todo_app/widget/button.dart';
-import 'package:flutter_todo_app/widget/category.dart';
+import 'package:flutter_todo_app/widget/category_icon.dart';
 import 'package:flutter_todo_app/widget/screen/create_task_screen/form_label.dart';
 import 'package:flutter_todo_app/widget/sub_page_wrap.dart';
 import 'package:flutter_todo_app/widget/touchable_opacity.dart';
@@ -178,7 +178,7 @@ class CategoryListFormField extends FormField<int> {
                                       state.didChange(e.id);
                                       state.validate();
                                     },
-                                    child: Category(
+                                    child: CategoryIcon(
                                         key: ValueKey(e),
                                         icon: e.icon,
                                         color: e.color,

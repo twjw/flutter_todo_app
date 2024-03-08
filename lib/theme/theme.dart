@@ -4,6 +4,6 @@ import 'package:flutter_todo_app/theme/text_theme.dart';
 class MyTheme {
   MyTheme._();
 
-  static final MyThemeText text = MyThemeText();
   static final MyThemeColor color = MyThemeColor();
+  static final MyThemeText text = MyThemeText(colors: MyTheme.color);
 }

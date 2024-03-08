@@ -6,4 +6,6 @@ class MyThemeColor {
   final primaryLight = const Color.fromRGBO(218, 248, 184, 1);
   final border = Colors.black12;
   final com1 = Colors.white;
+  final black = Colors.black;
+  final secondary = Colors.black54;
 }

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todo_app/theme/theme.dart';
 
-class Category extends StatelessWidget {
-  const Category({
+class CategoryIcon extends StatelessWidget {
+  const CategoryIcon({
     super.key,
     required this.icon,
     required this.color,
@@ -18,9 +17,13 @@ class Category extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
-        color: active == true ? color : Color.fromRGBO(color.red, color.green, color.blue, 0.2),
+        color: active == true
+            ? color
+            : Color.fromRGBO(color.red, color.green, color.blue, 0.2),
         border: Border.all(
-          color: active == true ? color : Color.fromRGBO(color.red, color.green, color.blue, 0.2),
+          color: active == true
+              ? color
+              : Color.fromRGBO(color.red, color.green, color.blue, 0.2),
           width: 2,
         ),
       ),
@@ -31,7 +34,9 @@ class Category extends StatelessWidget {
           height: 40,
           child: Icon(
             icon,
-            color: active == true ? Colors.white : Color.fromRGBO(color.red, color.green, color.blue, 0.4),
+            color: active == true
+                ? Colors.white
+                : Color.fromRGBO(color.red, color.green, color.blue, 0.4),
             size: 18,
           ),
         ),

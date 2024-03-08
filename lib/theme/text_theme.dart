@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo_app/theme/color_theme.dart';
 
 class MyThemeText {
-  final medium = const TextStyle(
-    fontSize: 16,
-    decoration: TextDecoration.none,
-    color: Colors.black,
-  );
+  MyThemeText({required MyThemeColor colors}) {
+    medium = TextStyle(
+      fontSize: 16,
+      decoration: TextDecoration.none,
+      color: colors.black,
+    );
 
-  final title = const TextStyle(
-    fontSize: 20,
-    decoration: TextDecoration.none,
-    color: Colors.black,
-  );
+    title = TextStyle(
+      fontSize: 20,
+      decoration: TextDecoration.none,
+      color: colors.black,
+    );
 
-  final small = const TextStyle(
-    fontSize: 13,
-    decoration: TextDecoration.none,
-    color: Colors.black54,
-  );
+    small = TextStyle(
+      fontSize: 13,
+      decoration: TextDecoration.none,
+      color: colors.secondary,
+    );
+  }
+
+  late TextStyle small;
+  late TextStyle title;
+  late TextStyle medium;
 }
